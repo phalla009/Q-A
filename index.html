@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>HTML/CSS/JS Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #0f3460;
+        color: #fff;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .hidden {
+        display: none;
+      }
+      .welcome {
+        text-align: center;
+        padding: 30px;
+        background: #16213e;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      }
+      .welcome h1 {
+        margin-bottom: 15px;
+        color: #ffcc00;
+      }
+      .welcome button {
+        background: #ffcc00;
+        color: #000;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 24px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .welcome button:hover {
+        background: #ffaa00;
+      }
+      main.card {
+        background: #16213e;
+        border-radius: 16px;
+        padding: 20px;
+        max-width: 600px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Welcome Page -->
+    <div id="welcomePage" class="welcome">
+      <h1>Welcome to the Quiz!</h1>
+      <p>Test your knowledge in Information Tecnology</p>
+
+      <button id="startBtn">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Page -->
+    <main id="quizPage" class="card hidden" role="main">
+      <header>
+        <div>
+          <h1>Multiple Choice Quiz</h1>
+          <p>Practice questions. Click an answer then "Check".</p>
+        </div>
+        <div class="scoreboard">
+          <div class="small">
+            Question <strong id="current">1</strong>/<span id="total">0</span>
+          </div>
+          <div class="small">Score: <strong id="score">0</strong></div>
+        </div>
+      </header>
+
+      <section class="question" aria-live="polite">
+        <div class="q-text" id="qtext">Loading...</div>
+        <div class="choices" id="choices"></div>
+      </section>
+
+      <footer>
+        <div>
+          <div class="meta" id="feedback">
+            Select an answer and press Check.
+          </div>
+          <button id="checkBtn">Check</button>
+          <button id="nextBtn" style="margin-left: 8px">Next</button>
+          <button
+            id="restartBtn"
+            style="
+              margin-left: 8px;
+              background: transparent;
+              border: 1px solid rgba(255, 255, 255, 0.06);
+            "
+          >
+            Restart
+          </button>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const welcomePage = document.getElementById("welcomePage");
+      const quizPage = document.getElementById("quizPage");
+      const startBtn = document.getElementById("startBtn");
+
+      startBtn.addEventListener("click", () => {
+        welcomePage.classList.add("hidden");
+        quizPage.classList.remove("hidden");
+      });
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
