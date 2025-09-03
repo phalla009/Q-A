@@ -5,52 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="/style.css" />
     <title>Quiz</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #0f3460;
-        color: #fff;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-      .hidden {
-        display: none;
-      }
-      .welcome {
-        text-align: center;
-        padding: 30px;
-        background: #16213e;
-        border-radius: 16px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-      }
-      .welcome h1 {
-        margin-bottom: 15px;
-        color: #ffcc00;
-      }
-      .welcome button {
-        background: #ffcc00;
-        color: #000;
-        border: none;
-        padding: 12px 24px;
-        font-size: 16px;
-        border-radius: 24px;
-        cursor: pointer;
-        font-weight: bold;
-      }
-      .welcome button:hover {
-        background: #ffaa00;
-      }
-      main.card {
-        background: #16213e;
-        border-radius: 16px;
-        padding: 20px;
-        max-width: 600px;
-        width: 100%;
-      }
-    </style>
   </head>
   <body>
     <!-- Welcome Page -->
@@ -63,19 +17,21 @@
 
     <!-- Quiz Page -->
     <main id="quizPage" class="card hidden" role="main">
+      <div>
+        <button id="back">Back</button>
+      </div>
       <header>
         <div>
           <h1>Multiple Choice Quiz</h1>
           <p>Practice questions. Click an answer then "Check".</p>
         </div>
-        <div class="scoreboard">
-          <div class="small">
-            Question <strong id="current">1</strong>/<span id="total">0</span>
-          </div>
-          <div class="small">Score: <strong id="score">0</strong></div>
-        </div>
       </header>
-
+      <div class="scoreboard">
+        <div class="small">
+          Question <strong id="current">1</strong>/<span id="total">0</span>
+        </div>
+        <div class="small">Score: <strong id="score">0</strong></div>
+      </div>
       <section class="question" aria-live="polite">
         <div class="q-text" id="qtext">Loading...</div>
         <div class="choices" id="choices"></div>
@@ -106,12 +62,21 @@
       const welcomePage = document.getElementById("welcomePage");
       const quizPage = document.getElementById("quizPage");
       const startBtn = document.getElementById("startBtn");
+      const backBtn = document.getElementById("back"); // your back button
 
+      // Start quiz
       startBtn.addEventListener("click", () => {
         welcomePage.classList.add("hidden");
         quizPage.classList.remove("hidden");
       });
+
+      // Back to welcome
+      backBtn.addEventListener("click", () => {
+        quizPage.classList.add("hidden");
+        welcomePage.classList.remove("hidden");
+      });
     </script>
+
     <script src="main.js"></script>
   </body>
 </html>

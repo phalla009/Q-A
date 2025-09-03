@@ -377,7 +377,8 @@ function renderQuestion() {
     const btn = document.createElement("button");
     btn.className = "choice";
     btn.type = "button";
-    btn.innerHTML = `<strong>${String.fromCharCode(65 + i)}.</strong> ${c}`;
+    // Display the HTML tags as plain text
+    btn.textContent = `${String.fromCharCode(65 + i)}. ${c}`;
     btn.dataset.index = i;
     btn.addEventListener("click", () => {
       [...choicesEl.children].forEach((x) => x.classList.remove("selected"));
